@@ -1,5 +1,6 @@
 #This script was used to bulk create service accounts for an android Zero Touch deployment with a specific naming scheme
 #The script is using a CSV file containing a list of account information with the headers "CenterCode","CenterName",'AccountName'
+
 $Users = Import-Csv -Path "C:\Path\To\file.csv" #import CSV and save to a variable
 foreach ($User in $Users)
 {

@@ -1,4 +1,4 @@
-#This Script uses Okta's official PowerShell Module integration and requires set up/autorization prior to running
+#This Script uses Okta's official PowerShell Module integration and requires set up/authorization prior to running
 #For instructions on setting up the Module, please refer to https://developer.okta.com/blog/2024/05/07/okta-powershell-module
 
 #This script takes a CSV that contains two columns﻿; one column GroupName contains the desired name for our Okta groups, second column CostCenterID contains the cost center ID corresponding to membership for that group

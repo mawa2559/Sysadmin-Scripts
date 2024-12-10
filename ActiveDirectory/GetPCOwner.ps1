@@ -1,0 +1,1 @@
+﻿(Get-ADComputer QCY28 -Properties NTSecurityDescriptor).NTSecurityDescriptor.owner

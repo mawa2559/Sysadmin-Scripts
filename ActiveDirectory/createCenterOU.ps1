@@ -1,10 +1,28 @@
-﻿# Prompt for Center Name, store a spaceless version, prompt for desired UPN
+#This interactive script creates a default nested AD object structure as shown below:
+<#
+domain.local
+  |
+  Company
+    |
+    Centers
+      |
+      "Center Name"__________________
+        |          |       |        |
+        Computers  Groups  Servers  Users
+                   |    |            |
+                Group1 Group2       ituser
+#>
+
+#The script creates the "Center Name" ou and the computer, groups, servers, users OU, two groups, and 1 user account INSIDE of an existing OU=Centers,OU=Company,DC=domain,DC=local structure
+#This script is very specific to business needs as far as the configuration of the OUs, groups, and user account. Many parts could be removed, changed etc. to suit.
+ 
+ # Prompt for Center Name, store a spaceless version, prompt for desired UPN
 $centerName = Read-Host "Enter the Center Name"
 $CenternameNoSpace = $centerName -replace '\s', ''
-$upn = Read-Host "Enter the IT User UPN (ituser@ccd.local)"
+$upn = Read-Host "Enter the IT User UPN (exampleituser@domain.local)" #UPN for the user account
 
-# Set the distinguished name for the parent OU
-$parentOU = "OU=Centers,OU=ClearChoice,DC=ccd,DC=local"
+# Set the distinguished name for the parent OU (this structure already exists)
+$parentOU = "OU=Centers,OU=Company,DC=domain,DC=local"
 
 # Get the parent OU object
 $parentOUPath = "LDAP://$parentOU"
@@ -49,14 +67,14 @@ $lgAllGroup.SetInfo()
 $wgLocalAdminGroup.SetInfo()
 
 # Set the group attributes
-Set-ADGroup -Identity "CN=$lgAllGroupName,OU=Groups,OU=$centerName,OU=Centers,OU=ClearChoice,DC=ccd,DC=local" -Description "Local Group - All $centerName users" -DisplayName $lgAllGroupName -SamAccountName $lgAllGroupName
-Set-ADGroup -Identity "CN=$wgLocalAdminGroupName,OU=Groups,OU=$centerName,OU=Centers,OU=ClearChoice,DC=ccd,DC=local" -Description "Workstation Group - $centerName workstation Local Admin" -DisplayName $wgLocalAdminGroupName -SamAccountName $wgLocalAdminGroupName
+Set-ADGroup -Identity "CN=$lgAllGroupName,OU=Groups,OU=$centerName,OU=Centers,OU=ClearChoice,DC=domain,DC=local" -Description "Local Group - All $centerName users" -DisplayName $lgAllGroupName -SamAccountName $lgAllGroupName
+Set-ADGroup -Identity "CN=$wgLocalAdminGroupName,OU=Groups,OU=$centerName,OU=Centers,OU=ClearChoice,DC=domain,DC=local" -Description "Workstation Group - $centerName workstation Local Admin" -DisplayName $wgLocalAdminGroupName -SamAccountName $wgLocalAdminGroupName
 
-# Add cms admin group as a member of localAdmin group
-Add-ADGroupMember -Identity $wgLocalAdminGroupName -Members CMS_WG_LocalAdmin
+# Add an existing group as a member of localAdmin group
+Add-ADGroupMember -Identity $wgLocalAdminGroupName -Members domain_localAdmin
 
-#add travler group to LG_All group
-add-adGroupMember -Identity $lgAllGroupName -Members CORP_LG_Traveler
+#add a different existing group to LG_All group
+add-adGroupMember -Identity $lgAllGroupName -Members domain_LG_traveler
 
 
 Write-Host "Active Directory OU structure and objects have been created successfully."

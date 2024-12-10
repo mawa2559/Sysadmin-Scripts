@@ -1,4 +1,4 @@
-#Sets the Page File size to 1.5x the total amount of RAM installed on the system, with a max size of 2x the amount of installed RAM
+#Sets the Page File size to 1.5x the total amount of RAM installed on the system, with a max size of 3x the amount of installed RAM
 
 $pagefile = Get-WmiObject Win32_ComputerSystem -EnableAllPrivileges
 $pagefile.AutomaticManagedPagefile = $false

@@ -1,5 +1,6 @@
 #This interactive script obtains a list of AD user who all have a given value set for Department
 #then, it iterates over that list of users and sets Department to a new value
+#this script can be adapted to update any AD profile value
  
 $departmentUsers = Read-Host "Enter the current department attribute from AD"
 $newDepartmentValue = Read-Host "Enter the new Department value (this will be applied to ALL users with the old department value)"

@@ -1,5 +1,4 @@
 #Script creates a csv file containing all Google Groups that begin with the specified text string, and saves the file to google drive.
 #can be run as is in either PowerShell or cmd
 
-
 gam print groups emailmatchpattern 'MyString.+' todrive

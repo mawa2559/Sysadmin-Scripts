@@ -11,7 +11,7 @@ $OU = "OU=Users,OU=Centers,OU=example,DC=ccd,DC=local" #reference the desired OU
 $SAM = $User.'CenterCode' + '.ZTandroid' #creating the SamAccountName
 $UPN = $SAM+'@domain.local' #set the UPN suffix to the desired domain
 $Description = 'Android ZT Photo Account - '+ $User.'DeviceName'
-$Password = 'REPLACE_ME_WITH_A_PASSWORD' #This script sets the same default pasdsword for all of the accounts listed in the CSV.
+$Password = 'REPLACE_ME_WITH_A_PASSWORD' #This script sets the same default password for all of the accounts listed in the CSV.
 $office = $User.'CenterName' #Reference the "CenterName" value for each account from the CSV for use as the AD Office value
 $mail = $User.'AccountName' #Reference the desired email address from the csv
 $dept = 'EXAMPLE' #reference the desired department value

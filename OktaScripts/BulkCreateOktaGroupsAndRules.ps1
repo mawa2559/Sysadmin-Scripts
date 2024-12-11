@@ -3,7 +3,7 @@
 
 #This script takes a CSV that contains two columns﻿; one column GroupName contains the desired name for our Okta groups, second column CostCenterID contains the cost center ID corresponding to membership for that group
 #The CostCenterID is referenced as the criteria for dynamic Okta group membership via the Group Rule - for each group, if a user has the associated CostCenterID in their Okta profile, they will be added to the group
-#This script is great for creating relatively simple groups and group rules where membership is determined by simple criteria, but can be expanded easily.
+#Great for creating relatively simple groups and group rules where membership is determined by simple criteria, but can be expanded easily.
 
 Import-Csv -Path "C:\Path\To\Okta_Groups_Rules.csv" | ForEach-Object { #iterate over all groups in the CSV and create the group, create the group rule, and activate the group rule
     $GroupName = $_.GroupName

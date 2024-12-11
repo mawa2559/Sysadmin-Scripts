@@ -1,0 +1,4 @@
+#This script sets the URLs that will open on startup for the ChromeOS devices in the provided OU in a Managed Guest Session
+#Note: this will not append a new URL to an existing list, it will clear any existing URLs and replace them, so be sure to include all required URLs in the command in a comma-separated list
+
+gam update chromepolicy chrome.devices.managedguest.StartupPages restoreOnStartupUrls “https://URL1.com,https://URL2.com” restoreOnStartup LIST_OF_URLS ou "/Company/Chrome Devices/East/New York"

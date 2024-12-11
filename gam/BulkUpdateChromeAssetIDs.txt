@@ -1,0 +1,4 @@
+#This script takes a CSV file containing at least two columns titled SerialNumber and AssetID, where SerialNumber is an existing ChromeOS Device's serial number and AssetID is the desired name for the device
+#can be run in cmd or from PowerShell
+
+gam csv C:\Path\To\file.csv gam update cros query:id:~~SerialNumber~~ assetid ~AssetID

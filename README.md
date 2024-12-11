@@ -9,9 +9,9 @@ An extension of "regular" GAM, this command line tool is a Google Workspace Admi
 
 # Okta
 Okta has a robust API that you can interact with via REST calls or their offical PowerShell Module. In addition, one of the most valuable tools for any Okta admin is the rockstar Chrome extension which introduces advanced functionality to the Admin Portal UI such as... csv exports. See the resources below for related information.
--Chrome Web Store link for [rockstar extension](https://chromewebstore.google.com/detail/rockstar/chjepkekmhealpjipcggnfepkkfeimbd)
--[Core Okta API](https://developer.okta.com/docs/reference/core-okta-api/)
--Okta Developer Blog Post: [How to Use Okta's Powershell Module to manage Your Okta Org](https://developer.okta.com/blog/2024/05/07/okta-powershell-module)
+\n-Chrome Web Store link for [rockstar extension](https://chromewebstore.google.com/detail/rockstar/chjepkekmhealpjipcggnfepkkfeimbd)
+\n-[Core Okta API](https://developer.okta.com/docs/reference/core-okta-api/)
+\n-Okta Developer Blog Post: [How to Use Okta's Powershell Module to manage Your Okta Org](https://developer.okta.com/blog/2024/05/07/okta-powershell-module)
 
 # Windows-Mgmt
 Just a collection of random Windows Admin scripts for some day to day tasks.

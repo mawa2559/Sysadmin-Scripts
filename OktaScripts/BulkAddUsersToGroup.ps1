@@ -1,14 +1,17 @@
-﻿$baseUrl = "https://clearchoice.okta.com"
-$authorizationToken = "00R294J0IxFMRtzL7Q3lWeaaoj5qLY-WQ1iLyQzTM5"
+#This script adds a csv list of users to the specified Okta group
+#Could easily be customized to map different user to different groups, or one user to mutiple groups.
+ 
+$baseUrl = "https://your_domain.okta.com"
+$authorizationToken = "API AUTH TOKEN HERE"
 $headers = @{
     "Authorization" = "SSWS $authorizationToken"
     "Content-Type" = "application/json"
 }
 
-Import-Csv -Path "C:\Users\mwalls\Downloads\userIDs.csv" | ForEach-Object {
+Import-Csv -Path "C:\Path\To\userIDs.csv" | ForEach-Object { #iterate over each row in the csv
 
-    $groupID = "00g1uve51s4BG4n2I0h8" #change this value to specify the group
-    $userID = $_.ID 
+    $groupID = "<Group ID>" #change this value to specify the group ID
+    $userID = $_.ID  #references the column named ID on the csv containing user IDs
     $endpoint = "/api/v1/groups/" + "$groupID" + "/users/" + "$userID"
 
     try {
@@ -23,5 +26,3 @@ Import-Csv -Path "C:\Users\mwalls\Downloads\userIDs.csv" | ForEach-Object {
     }
 
 }
-
-#00R294J0IxFMRtzL7Q3lWeaaoj5qLY-WQ1iLyQzTM5

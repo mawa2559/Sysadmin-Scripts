@@ -1,4 +1,4 @@
-#This interactive powershell script uses a PUT request to assign an Okta application integaration to an Okta group
+#This interactive powershell script uses a PUT request to assign an Okta application integration to an Okta group
  
 $baseUrl = "https://your_domain.okta.com" #Enter your Okta org's base URL
 $groupID = Read-Host "Enter the Okta group ID (seen in the URL when looking at the group from Okta Admin portal)" #you need to provide the ID of the Okta group

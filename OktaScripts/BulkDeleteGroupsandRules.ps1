@@ -1,4 +1,5 @@
 #This script takes a CSV with a list of Okta Group IDs/Names and Group Rule IDs/names, and deletes them in bulk via an http DELETE request
+#csv containing group/rule info built using rockstar extension
 
 Import-Csv -Path "C:\Path\To\file.csv" | ForEach-Object {
     $baseUrl = "https://your_domain.okta.com"

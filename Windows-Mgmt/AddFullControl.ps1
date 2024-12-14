@@ -6,4 +6,4 @@ $ACL = Get-ACL -Path $folder
 $AccessRule = New-Object System.Security.AccessControl.FileSystemAccessRule($username, "FullControl", "ContainerInherit,ObjectInherit", "None", "Allow")
 $ACL.SetAccessRule($AccessRule)
 $ACL | Set-Acl -Path $folder
-(Get-ACL -Path $folder).Access | Format-Table IdentityReference, FileSystemRights, AccessControlType, IsInherited, InheritanceFlags -AutoSize
+(Get-ACL -Path $folder).Access | Format-Table IdentityReference, FileSystemRights, AccessControlType, IsInherited, InheritanceFlags -AutoSize #print the ACLs after setting

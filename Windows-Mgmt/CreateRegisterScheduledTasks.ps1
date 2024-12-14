@@ -1,12 +1,12 @@
 # This script creates and registers a scheduled task based on a pre-defined xml file. This is helpful for mass deploying or repeated task creations
 #The predefined xml is created as is, so it should have it's settings pre-defined, but can me modified afterwards as needed
-#the start date and time and trigger is set in the xml below, but also be set separately with New-ScheduledTaskTrigger and Set-ScheduledTaskTrigger commands
+#the start date and time and trigger is set in the xml below, but can also be set separately with New-ScheduledTaskTrigger and Set-ScheduledTaskTrigger commands
 #Tasks have many parameters and the XML can be modified to suit
 
 $TaskFile = "C:\Path\To\upload_task.xml" # path to the xml file with the task definitions
 $TaskName = "upload_task" #the name for the task as it will appear in Scheudled Task manager
 $AccountPass = "PASSWORD" #the password of the account that will be running the task
-$DomainUser = "domain\admin1" #domain\username of the account that will be running the task
+$DomainUser = "domain\Admin1" #domain\username of the account that will be running the task
 
 Register-ScheduledTask -Xml (get-content $TaskFile | out-string) -TaskName $taskName -User $DomainUser -Password $AccountPass -force
 

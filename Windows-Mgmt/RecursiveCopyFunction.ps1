@@ -1,4 +1,4 @@
-#This script recursively copies a directory from a remote computer
+#This script recursively copies a directory from a remote computer to the local machine
 #It's packaged as a function to make it more portable
 
 function Copy-Folder {

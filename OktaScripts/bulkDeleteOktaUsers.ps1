@@ -6,7 +6,7 @@
  
 Import-Csv -Path "C:\Path\To\Users.csv" | ForEach-Object {
     $baseUrl = "https://yourdomain.okta.com/api/v1/users/" #update to your okta tenant url
-    $userlogin = $_.Username #the CSV imported has all of the users to be deleted in a column with the header "Username"
+    $userlogin = $_.Username #the CSV imported has all of the usersnames to be deleted in a column with a header "Username"
     $authorizationToken = "API AUTH TOKEN HERE"
     $deactivateEndpoint = $userlogin + "/lifecycle/deactivate" #Okta user must first be deactivated before they can be deleted, so both delete and deactivate endpoints are called
     $deleteEndpoint = $userlogin

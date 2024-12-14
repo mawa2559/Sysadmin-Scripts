@@ -1,6 +1,6 @@
 #PowerShell script that invokes GAM
 #This script takes a CSV containing a list of emails and sets their gmail Vacation Responder to automatically reply with a default message beginning on the referenced date
-#The message is customize for each user to display their email in the auto reply, and further customization using variables is simple
+#The message is customized for each account to display the email in the auto reply, and further customization using variables is simple
  
 $emails = import-csv "C:\Path\To\Emails.csv"
 

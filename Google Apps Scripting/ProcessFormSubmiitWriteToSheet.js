@@ -34,36 +34,3 @@ function formSubmission(e) {
     console.log(err);
   }
 }
-
-//This function emails the form submitter a confrimation that they submitted the forms successfully using the built in MailApp.
-function emailSubmitter(e) { 
-  Utilities.sleep(250);
-  var formResponse = e.response;
-  var submitterEmail = formResponse.getRespondentEmail(); //Get the form submitter's email
-  MailApp.sendEmail(submitterEmail, 'Request Received! Take further action using the attached Guide', 'Success! Click on the link below for further instruction.  https://docs.google.com/document/d/<Google Doc ID>/edit?usp=sharing.', { 
-    name: 'Form Response: Do Not Reply',
-    noReply: true,
-    }); //MailApp sends email with the name specified above and with the noReply parameter. A link to a document is included in the reply.
-  console.log("Emailed " + submitterEmail)
-}
-//This function clears the contents of all sheets with data written to it - a trigger runs it each night between Midnight-1am.
-function clearContentsOnly() {
-  try{
-  var ss = SpreadsheetApp.openById("<spreadhsheet ID>");
-  var allsheets = ss.getSheets(); //obtains a list of all sheets within the destination spreadsheet
-    //for statement below iterates over each sheet in the list, selects rows 1-50 for column 1 and 2, and clears any data if present
-    for(var s in allsheets){
-      var sheet = allsheets[s];
-      var sheetName = sheet.getName();
-      var range = sheet.getRange(2,1,50,2);
-      var cell = range.getCell(1,1);
-      if (cell.isBlank() == false) {
-        range.clearContent();
-        console.log("Data cleared from " + sheetName);
-      }
-    }
-  }
-  catch(err){
-    console.log(err);    
-  }
-}

@@ -35,7 +35,7 @@ Import-Csv -Path "C:\Path\To\Okta_Groups_Rules.csv" | ForEach-Object { #iterate 
     }
 }
 
-$CreatedRule = New-OktaGroupRule -GroupRule $NewGroupRule -IncludeNullValues #store the newly created group rule's attributes in a varible
+$CreatedRule = New-OktaGroupRule -GroupRule $NewGroupRule -IncludeNullValues #store the newly created group rule's attributes in a variable
 
 Echo $CreatedRule
 

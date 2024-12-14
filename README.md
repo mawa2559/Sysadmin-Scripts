@@ -1,5 +1,6 @@
 # Sysadmin-Scripts
 This is a collection of PowerShell, GAM and other scripts that I've created to make my life as a Sysadmin and System Engineer easier. Many were built with a specific purpose in mind but are easily customizable for a variety of use cases.  
+  
 WARNING: There is no guarantee that these scripts are thoroughly tested and use could have adverse affects on production evironments. Use at your own risk.
 
 # GAM (GAMADV-XTD3)
@@ -14,4 +15,4 @@ Okta has a robust API that you can interact with via REST calls or their offical
 -Okta Developer Blog Post: [How to Use Okta's Powershell Module to Manage Your Okta Org](https://developer.okta.com/blog/2024/05/07/okta-powershell-module)
 
 # Windows-Mgmt
-Just a collection of random Windows Admin scripts for some day to day tasks.
+Just a collection of random Windows Admin scripts for day to day tasks.

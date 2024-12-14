@@ -6,5 +6,5 @@ $emails = import-csv "C:\Path\To\Emails.csv"
 
 foreach ($user in $emails) {
     $email = $user.primaryEmail #references a column in the csv with the header "primaryEmail"
-    gam user $email vacation on subject "Out of Office" message "This account ($email) is no longer active. Please email user@company.com for assistance." startdate 2024-12-10
+    gam user $email vacation on subject "Non-Deliverable" message "This account ($email) is no longer active. Please email user@company.com for assistance." startdate 2024-12-10
     }

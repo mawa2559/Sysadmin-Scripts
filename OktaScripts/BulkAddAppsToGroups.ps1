@@ -12,7 +12,7 @@ $headers = @{
 Import-Csv -Path "C:\Path\To\file.csv" | ForEach-Object {
 
     $groupID = $_.GroupID #this could be set to a static group ID to assign multiple apps referenced on the CSV to a single group
-    $appID = "<APP ID>"  #set this to $_.appID (or whatever you name the appID column) to reference the appID column of the CSV to assign different apps to different groups
+    $appID = "<APP ID>"  #as is, this assigns one app to a list of group. Could set this to $_.appID (or whatever you name the appID column) to reference the appID column of the CSV to assign different apps to different groups
     $endpoint = "/api/v1/apps/" + "$appID" + "/groups/" + "$groupID"
 
     try {
@@ -21,10 +21,10 @@ Import-Csv -Path "C:\Path\To\file.csv" | ForEach-Object {
 
         $response | out-host
         Write-Host "$_.AppLabel added to group: $_.GroupName"
-        Start-Sleep -Seconds 2 #Okta rate limits the API endpiont; sleeping keeps function from failing due to 429 error if your CSV is referencing a lot of groups/apps
+        Start-Sleep -Seconds 2 #Okta rate limits the API endpiont; sleeping keeps function from failing due to 429 error if your CSV is referencing a lot of groups/apps. Comment out if your list is short.
     }
     catch {
-        Read-Host "An error occurred: $($_.Exception.Message).`nPress Enter to Exit"
+        Read-Host "An error occurred: $($_.Exception.Message)."
         Throw $_
     }
 

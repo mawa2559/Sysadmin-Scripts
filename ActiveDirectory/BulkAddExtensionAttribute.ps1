@@ -4,7 +4,7 @@
 $officeUsers = Read-Host "Enter the current office attribute from AD"
 $extAttributeValue = Read-Host "Enter the extendedAttribute2 value"
 try {
-    $userList = Get-ADUser -Filter "Office -eq '$officeUsers'" | Select sAMAccountName #stores the list of users who all have the matching Office value specified previiously to a variable
+    $userList = Get-ADUser -Filter "Office -eq '$officeUsers'" | Select sAMAccountName #Stores the list of users who all have the matching Office value specified previously to a variable
     $userList | out-host #Prints the user list
 }
 catch {
@@ -22,4 +22,3 @@ catch {
     Read-host "Error occurred: $($_.Exception.Message).`nPress enter to exit"
     Throw $_
 }
-Read-Host "Press Enter to Exit"

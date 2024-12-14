@@ -26,6 +26,5 @@ try {
 }
 catch {
     write-Host "An error occurred: $($_.Exception.Message)."
-    Write-Host "$_.email not added"
 }
 }

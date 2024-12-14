@@ -7,4 +7,3 @@ $AccessRule = New-Object System.Security.AccessControl.FileSystemAccessRule($use
 $ACL.SetAccessRule($AccessRule)
 $ACL | Set-Acl -Path $folder
 (Get-ACL -Path $folder).Access | Format-Table IdentityReference, FileSystemRights, AccessControlType, IsInherited, InheritanceFlags -AutoSize
-Write-Host "`nPermission added!" -ForegroundColor Green

@@ -1,4 +1,4 @@
-//This function clears the contents of all sheets in a spreadsheet with data written to it - a trigger runs it each night between Midnight-1am.
+//This function clears the contents of all sheets in a spreadsheet with data written to it
 function clearContents() {
   try{
   var ss = SpreadsheetApp.openById("<spreadhsheet ID>");
@@ -7,7 +7,7 @@ function clearContents() {
     for(var s in allsheets){
       var sheet = allsheets[s];
       var sheetName = sheet.getName();
-      var range = sheet.getRange(2,1,50,2);
+      var range = sheet.getRange(2,1,50,2); //specify the cell range to be cleared
       var cell = range.getCell(1,1);
       if (cell.isBlank() == false) {
         range.clearContent();

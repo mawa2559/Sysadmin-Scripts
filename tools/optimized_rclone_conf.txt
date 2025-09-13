@@ -1,6 +1,8 @@
-# this basic guide is great for deploying the aws components required, and configuring GWS https://aws.amazon.com/blogs/storage/migrate-data-from-google-drive-to-amazon-s3-using-rclone/
-# an rclone command that was optimized for use with an a1.2xlarge EC2 Instance transferring data from Google Drive and a GCS bucket:
-rclone copy --transfers 110 --checkers 200 --buffer-size 128M --ignore-existing --drive-pacer-burst 200 --drive-pacer-min-sleep 10ms --multi-thread-streams 8 gdrive-remote-Design_Backups2022: gcs-remote-DesignBackups:clearchoice-design-backups/2022/ --progress
+# this basic guide is great for deploying the aws components required, and configuring GWS:
+# https://aws.amazon.com/blogs/storage/migrate-data-from-google-drive-to-amazon-s3-using-rclone/
+
+# an rclone command that was optimized for use with an a1.2xlarge EC2 Instance transferring data from Google Drive to a GCS bucket:
+rclone copy --transfers 110 --checkers 200 --buffer-size 128M --ignore-existing --drive-pacer-burst 200 --drive-pacer-min-sleep 10ms --multi-thread-streams 8 gdrive-remote-SharedDrive: gcs-remote-TargetBucket: --progress
 
 # example rclone.conf file
 [gcs-remote-TargetBucket]

@@ -1,0 +1,12 @@
+# when performing vault exports in Google vault, they are only available for 14 days
+# moving them to a gcp bucket you own and have rights for allows you to store them wihtout downloading locally as long as you need
+# more info: https://github.com/GAM-team/GAM/wiki/Vault-Takeout#copy-vault-exports
+
+# generate a CSV of all open matters in Vault with nifo like matter ID etc. for use later
+gam print vaultmatters matterstate open todrive tdtitle "openVaultmatters"
+
+# create a csv file with the export IDs for any exports associated with a given matter
+gam redirect csv c:\temp\exports.csv print exports matters ID:<MATTER-ID> fields id,status,createTime
+
+# initiate copy of each export from the default GCP location to a bucket you own. target prefix places files inside of gcp "folder"
+gam csv c:\temp\exports.csv gam copy vaultexport "ID:~~matterId~~" "ID:~~id~~" targetbucket <destination-gcp-bucket> targetprefix "myMatter1Data/"
